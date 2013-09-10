@@ -1,0 +1,6 @@
+parameters:
+
+    spotify.api.baseurl: "http://ws.spotify.com/"
+    spotify.api.mapper.class: "Mmoreram\\SpotifyApiBundle\\Mapper\\SpotifyMapper"
+    spotify.api.search.class: "Mmoreram\\SpotifyApiBundle\\Services\\SpotifyApiSearch"
+    spotify.api.lookup.class: "Mmoreram\\SpotifyApiBundle\\Services\\SpotifyApiLookup"

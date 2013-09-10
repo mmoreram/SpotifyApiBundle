@@ -1,0 +1,21 @@
+{
+    "name": "mmoreram/spotify-api-bundle",
+    "description": "Easy Spotify Api interface for Symfony2 projects",
+    "keywords": ["spotify"],
+    "homepage": "https://github.com/mmoreram/SpotifyApiBundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marc Morera",
+            "email": "yuhu@mmoreram.com"
+        }
+    ],
+    "require": {
+
+    },
+    "target-dir": "Mmoreram/SpotifyApiBundle",
+    "autoload": {
+        "psr-0": { "Mmoreram\\SpotifyApiBundle": "" }
+    }
+}
