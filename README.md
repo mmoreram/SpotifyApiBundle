@@ -3,6 +3,9 @@
 SpotifyApiBundle for Symfony2
 ---
 
+> This bundle is only a wrapper of Spotify Api for all Symfony2 developers.  
+> You can find all API specification [here](https://developer.spotify.com/technologies/web-api/)
+
 Table of contents
 -----
 1. [Installing SpotifyApiBundle](#installing-spotifyapibundle)
