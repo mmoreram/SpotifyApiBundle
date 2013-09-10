@@ -35,7 +35,7 @@ And register the bundle in your appkernel.php file
 API Search
 ---
 
-You can search a simple artist name, getting an Array of Artists
+You can search a simple artist name, getting an array of Artists, with a maximum of 100 results
 
     $page = 1;
 
@@ -51,5 +51,67 @@ You can also search also a simple artist name, getting only first Artist
         ->get('spotify.api.search')
         ->findFirstArtist('Hans Zimmer');
 
+You can search a simple Album name, getting an array of Albums, with a maximum of 100 results
+
+    $page = 1;
+
+    artists = $this
+        ->container
+        ->get('spotify.api.search')
+        ->findAlbums("Pirate of the Caribbean, at world's end", $page);
+
+You can also search also a simple artist name, getting only first Artist
+
+    artists = $this
+        ->container
+        ->get('spotify.api.search')
+        ->findFirstAlbum("Pirate of the Caribbean, at world's end");
+
+You can search a simple Track name, getting an array of Tracks, with a maximum of 100 results
+
+    $page = 1;
+
+    artists = $this
+        ->container
+        ->get('spotify.api.search')
+        ->findTracks("I don't think now is the best time", $page);
+
+You can also search also a simple artist name, getting only first Artist
+
+    artists = $this
+        ->container
+        ->get('spotify.api.search')
+        ->findFirstTrack("I don't think now is the best time");
+
+API Lookup
+---
+
+Given an artist code, you can get all related information by using the Spitify Api Lookup service
+
+    artists = $this
+        ->container
+        ->get('spotify.api.search')
+        ->getArtist('spotify:artist:0YC192cP3KPCRWx8zr8MfZ');
+
+Given an album code, you can also get all related information it
+
+    artists = $this
+        ->container
+        ->get('spotify.api.search')
+        ->getAlbum('spotify:album:6JoI0NEAqeJ20X6lU3Drx0');
+
+And given a track code, you can also get all related information about it
+
+    artists = $this
+        ->container
+        ->get('spotify.api.search')
+        ->getAlbum('spotify:track:5sbwYsgzeg7wsug1A1pTiO');
 
 
+Contribute
+-----
+
+All code is Symfony2 Code formatted, so every pull request must validate phpcs standards.  
+You should read [Symfony2 coding standards](http://symfony.com/doc/current/contributing/code/standards.html) and install [this](https://github.com/opensky/Symfony2-coding-standard) CodeSniffer to check all code is validated.  
+
+There is also a policy for contributing to this project. All pull request must be all explained step by step, to make us more understandable and easier to merge pull request. All new features must be tested with PHPUnit.

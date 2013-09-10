@@ -200,7 +200,6 @@ class SpotifyMapper
      */
     public function mapAlbum($album, $recursive = true)
     {
-
         $albumEntity = new SpotifyAlbum();
 
         $albumEntity = $this->mapCommon($albumEntity, $album);
@@ -212,8 +211,8 @@ class SpotifyMapper
             : null
         )
         ->setArtist(
-            $recursive && isset($album['artists']) && isset($album['artists'])
-            ? $this->mapArtists($album['artists'])
+            $recursive && isset($album['artists']) && isset($album['artists'][0])
+            ? $this->mapArtist($album['artists'][0])
             : null
         );
 
