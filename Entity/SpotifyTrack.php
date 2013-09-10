@@ -15,7 +15,7 @@ namespace Mmoreram\SpotifyApiBundle\Entity;
  */
 class SpotifyTrack extends SpotifyEntityBase
 {
-    
+
     /**
      * Artist
      * 
@@ -136,7 +136,6 @@ class SpotifyTrack extends SpotifyEntityBase
 
 
     /**
-     * 
      * Store locally territories
      * 
      * @param array $territories Territories to set
@@ -165,13 +164,13 @@ class SpotifyTrack extends SpotifyEntityBase
     /**
      * Sets track number
      * 
-     * @param integer $track_number Track number
+     * @param integer $trackNumber Track number
      * 
      * @return SpotifyTrack self Object
      */
-    public function setTrackNumber($track_number)
+    public function setTrackNumber($trackNumber)
     {
-        $this->trackNumber = $track_number;
+        $this->trackNumber = $trackNumber;
 
         return $this;
     }

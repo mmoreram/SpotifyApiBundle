@@ -120,7 +120,6 @@ class SpotifyAlbum extends SpotifyEntityBase
 
 
     /**
-     * 
      * Store locally territories
      * 
      * @param array $territories Territories to set

@@ -15,7 +15,7 @@ namespace Mmoreram\SpotifyApiBundle\Entity;
  */
 class SpotifyEntityBase
 {
-    
+
     /**
      * @var int
      * 
@@ -107,7 +107,7 @@ class SpotifyEntityBase
      * 
      * @return SpotifyEntityBase self Object
      */
-    public function setName($name) 
+    public function setName($name)
     {
         $this->name = $name;
 

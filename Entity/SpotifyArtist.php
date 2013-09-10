@@ -31,7 +31,6 @@ class SpotifyArtist extends SpotifyEntityBase
      */
     public function getAlbums()
     {
-
         return $this->albums;
     }
 
@@ -39,13 +38,13 @@ class SpotifyArtist extends SpotifyEntityBase
     /**
      * Set albums
      * 
-     * @param Array $albums Albums to set
+     * @param array $albums Albums to set
      * 
      * @return SpotifyArtist self Object
      */
-    public function setAlbums($album)
+    public function setAlbums(array $albums = null)
     {
-        $this->albums = $album;
+        $this->albums = $albums;
 
         return $this;
     }

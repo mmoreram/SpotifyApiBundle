@@ -49,8 +49,8 @@ class SpotifyApi
      * @param SpotifyMapper $mapper  Mapper intance
      * @param string        $baseUrl Base url from api
      */
-    public function __construct(Browser $buzz, SpotifyMapper $mapper, $baseUrl) {
-
+    public function __construct(Browser $buzz, SpotifyMapper $mapper, $baseUrl)
+    {
         $this->buzz = $buzz;
         $this->mapper = $mapper;
         $this->baseUrl = $baseUrl;
@@ -64,8 +64,8 @@ class SpotifyApi
      * 
      * @return string Query normalized
      */
-    protected function normalizeQuery($query) {
-
+    protected function normalizeQuery($query)
+    {
         if (is_array($query)) {
 
             $query = implode(' ', $query);
@@ -82,8 +82,8 @@ class SpotifyApi
      * 
      * @return mixed Results
      */
-    protected function get($url) {
-        
+    protected function get($url)
+    {
         $request = $this->buzz->get($url, array(
             'Accept'    =>  'application/json'
         ));
@@ -105,8 +105,8 @@ class SpotifyApi
      * 
      * @return Array Response return information
      */
-    private function getMessageFromCode($code) {
-
+    private function getMessageFromCode($code)
+    {
         switch ($code) {
 
             case 200:

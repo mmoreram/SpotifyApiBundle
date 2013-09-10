@@ -11,6 +11,9 @@ namespace Mmoreram\SpotifyApiBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
+/**
+ * SpotifyApiBundle class
+ */
 class SpotifyApiBundle extends Bundle
 {
 }

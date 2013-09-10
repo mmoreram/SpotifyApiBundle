@@ -39,7 +39,7 @@ class SpotifyMapper
                 return $this->mapAlbumsData($data);
 
             case 'track';
-                
+
                 return $this->mapTracksData($data);
         }
 
@@ -123,7 +123,8 @@ class SpotifyMapper
      * 
      * @return array Entities mapped
      */
-    public function mapArtists(Array $artists) {
+    public function mapArtists(Array $artists)
+    {
 
         $artistsLoaded = array();
 
@@ -143,7 +144,8 @@ class SpotifyMapper
      * 
      * @return SpotifyArtist Artist loaded
      */
-    public function mapArtist($artist) {
+    public function mapArtist($artist)
+    {
 
         $artistEntity = new SpotifyArtist();
 
@@ -152,7 +154,7 @@ class SpotifyMapper
         $albumsLoaded = null;
 
         if (isset($artist['albums']) && is_array($artist['albums'])) {
-            
+
             $albumsLoaded = array();
 
             foreach ($artist['albums'] as $album) {
@@ -160,7 +162,7 @@ class SpotifyMapper
                 $albumsLoaded[] = $this->mapAlbum($album['album'], false);
             }
         }
-        
+
         $artistEntity->setAlbums($albumsLoaded);
 
         return $artistEntity;
@@ -174,7 +176,8 @@ class SpotifyMapper
      * 
      * @return array Entities mapped
      */
-    public function mapAlbums(Array $albums) {
+    public function mapAlbums(Array $albums)
+    {
 
         $albumsLoaded = array();
 
@@ -195,19 +198,24 @@ class SpotifyMapper
      * 
      * @return SpotifyAlbum Album loaded
      */
-    public function mapAlbum($album, $recursive = true) {
+    public function mapAlbum($album, $recursive = true)
+    {
 
         $albumEntity = new SpotifyAlbum();
 
         $albumEntity = $this->mapCommon($albumEntity, $album);
 
-        $albumEntity    ->setTerritories(   isset($album['territories'])
-                                            ? explode(' ', $album['territories'])
-                                            : null)
-
-                        ->setArtist(        $recursive && isset($album['artists']) && isset($album['artists'])
-                                            ? $this->mapArtists($album['artists'])
-                                            : null);
+        $albumEntity
+        ->setTerritories(
+            isset($album['territories'])
+            ? explode(' ', $album['territories'])
+            : null
+        )
+        ->setArtist(
+            $recursive && isset($album['artists']) && isset($album['artists'])
+            ? $this->mapArtists($album['artists'])
+            : null
+        );
 
         return $albumEntity;
     }
@@ -220,7 +228,8 @@ class SpotifyMapper
      * 
      * @return array Entities mapped
      */
-    public function mapTracks(Array $tracks) {
+    public function mapTracks(Array $tracks)
+    {
 
         $tracksLoaded = array();
 
@@ -240,27 +249,34 @@ class SpotifyMapper
      * 
      * @return SpotifyArtist Artist loaded
      */
-    public function mapTrack($track) {
+    public function mapTrack($track)
+    {
 
         $trackEntity = new SpotifyTrack();
 
         $trackEntity = $this->mapCommon($trackEntity, $track);
 
-        $trackEntity    ->setTerritories(   isset($track['territories'])
-                                            ? explode(' ', $track['territories'])
-                                            : null)
-
-                        ->setTrackNumber(   isset($track['track-number'])
-                                            ? $track['track-number']
-                                            : null)
-
-                        ->setArtist(        isset($track['artists']) && isset($track['artists'][0])
-                                            ? $this->mapArtist($track['artists'][0])
-                                            : null)
-
-                        ->setAlbum(         isset($track['album'])
-                                            ? $this->mapAlbum($track['album'])
-                                            : null);
+        $trackEntity
+        ->setTerritories(
+            isset($track['territories'])
+            ? explode(' ', $track['territories'])
+            : null
+        )
+        ->setTrackNumber(
+            isset($track['track-number'])
+            ? $track['track-number']
+            : null
+        )
+        ->setArtist(
+            isset($track['artists']) && isset($track['artists'][0])
+            ? $this->mapArtist($track['artists'][0])
+            : null
+        )
+        ->setAlbum(
+            isset($track['album'])
+            ? $this->mapAlbum($track['album'])
+            : null
+        );
 
         return $trackEntity;
     }
@@ -274,23 +290,30 @@ class SpotifyMapper
      * 
      * @return SpotifyEntityBase Object with data mapped
      */
-    public function mapCommon($entity, $data) {
+    public function mapCommon($entity, $data)
+    {
 
-        $entity ->setHref(          isset($data['href'])
-                                    ? $data['href']
-                                    : null)
-
-                ->setId(            isset($data['id'])
-                                    ? $data['id']
-                                    : null)
-
-                ->setName(          isset($data['name'])
-                                    ? $data['name']
-                                    : null)
-
-                ->setPopularity(    isset($data['popularity'])
-                                    ? $data['popularity']
-                                    : null);
+        $entity
+        ->setHref(
+            isset($data['href'])
+            ? $data['href']
+            : null
+        )
+        ->setId(
+            isset($data['id'])
+            ? $data['id']
+            : null
+        )
+        ->setName(
+            isset($data['name'])
+            ? $data['name']
+            : null
+        )
+        ->setPopularity(
+            isset($data['popularity'])
+            ? $data['popularity']
+            : null
+        );
 
         return $entity;
     }

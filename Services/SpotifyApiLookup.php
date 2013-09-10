@@ -11,7 +11,7 @@ namespace Mmoreram\SpotifyApiBundle\Services;
 
 
 /**
- * Service to get Entity given the Spotify Url
+ * SpotifyApiLookup class
  */
 class SpotifyApiLookup extends SpotifyApi
 {
@@ -64,8 +64,8 @@ class SpotifyApiLookup extends SpotifyApi
      * 
      * @return SpotifyArtist Artist loaded
      */
-    public function getArtist($url, $extras = self::EXTRAS_ALBUMDETAIL) {
-
+    public function getArtist($url, $extras = self::EXTRAS_ALBUMDETAIL)
+    {
         return $this->get(
             $this->baseUrl . 'lookup/1/?uri=' . $url . '&extras=' . $extras
         );
@@ -80,11 +80,11 @@ class SpotifyApiLookup extends SpotifyApi
      * 
      * @return SpotifyAlbum Album loaded
      */
-    public function getAlbum($url, $extras = self::EXTRAS_TRACKDETAIL) {
-
+    public function getAlbum($url, $extras = self::EXTRAS_TRACKDETAIL)
+    {
         return $this->get(
             $this->baseUrl . 'lookup/1/?uri=' . $url . '&extras=' . $extras
-        );  
+        );
     }
 
 
@@ -95,10 +95,10 @@ class SpotifyApiLookup extends SpotifyApi
      * 
      * @return SpotifyTrack Track loaded
      */
-    public function getTrack($url) {
-
+    public function getTrack($url)
+    {
         return $this->get(
             $this->baseUrl . 'lookup/1/?uri=' . $url
-        ); 
+        );
     }
 }
