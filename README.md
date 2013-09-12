@@ -44,14 +44,14 @@ You can search a simple artist name, getting an array of Artists, with a maximum
 
     $page = 1;
 
-    artists = $this
+    $artists = $this
         ->container
         ->get('spotify.api.search')
         ->findArtist('Hans Zimmer', $page);
 
 You can also search also a simple artist name, getting only first Artist
 
-    artists = $this
+    $artists = $this
         ->container
         ->get('spotify.api.search')
         ->findFirstArtist('Hans Zimmer');
@@ -60,14 +60,14 @@ You can search a simple Album name, getting an array of Albums, with a maximum o
 
     $page = 1;
 
-    artists = $this
+    $albums = $this
         ->container
         ->get('spotify.api.search')
         ->findAlbums("Pirate of the Caribbean, at world's end", $page);
 
 You can also search also a simple artist name, getting only first Artist
 
-    artists = $this
+    $albums = $this
         ->container
         ->get('spotify.api.search')
         ->findFirstAlbum("Pirate of the Caribbean, at world's end");
@@ -76,14 +76,14 @@ You can search a simple Track name, getting an array of Tracks, with a maximum o
 
     $page = 1;
 
-    artists = $this
+    $tracks = $this
         ->container
         ->get('spotify.api.search')
         ->findTracks("I don't think now is the best time", $page);
 
 You can also search also a simple artist name, getting only first Artist
 
-    artists = $this
+    $tracks = $this
         ->container
         ->get('spotify.api.search')
         ->findFirstTrack("I don't think now is the best time");
@@ -93,24 +93,24 @@ API Lookup
 
 Given an artist code, you can get all related information by using the Spitify Api Lookup service
 
-    artists = $this
+    $artist = $this
         ->container
         ->get('spotify.api.search')
         ->getArtist('spotify:artist:0YC192cP3KPCRWx8zr8MfZ');
 
 Given an album code, you can also get all related information it
 
-    artists = $this
+    $album = $this
         ->container
         ->get('spotify.api.search')
         ->getAlbum('spotify:album:6JoI0NEAqeJ20X6lU3Drx0');
 
 And given a track code, you can also get all related information about it
 
-    artists = $this
+    $track = $this
         ->container
         ->get('spotify.api.search')
-        ->getAlbum('spotify:track:5sbwYsgzeg7wsug1A1pTiO');
+        ->getTrack('spotify:track:5sbwYsgzeg7wsug1A1pTiO');
 
 
 Contribute
