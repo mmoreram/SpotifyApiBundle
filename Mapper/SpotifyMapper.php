@@ -266,6 +266,11 @@ class SpotifyMapper
             ? $track['track-number']
             : null
         )
+        ->setLength(
+            isset($track['length'])
+            ? $track['length']
+            : null
+        )
         ->setArtist(
             isset($track['artists']) && isset($track['artists'][0])
             ? $this->mapArtist($track['artists'][0])
