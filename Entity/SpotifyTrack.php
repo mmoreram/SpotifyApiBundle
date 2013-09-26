@@ -195,7 +195,7 @@ class SpotifyTrack extends SpotifyEntityBase
      */
     public function setLength($length)
     {
-        $this->length = $lentgh;
+        $this->length = $length;
 
         return $this;
     }
