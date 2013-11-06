@@ -17,7 +17,7 @@
         "symfony/config": ">=2.1",
         "symfony/http-kernel": ">=2.1",
         "symfony/dependency-injection": ">=2.1",
-        "sensio/buzz-bundle": "dev-master"
+        "sensio/buzz-bundle": ">=1.0.0"
     },
     "target-dir": "Mmoreram/SpotifyApiBundle",
     "autoload": {
