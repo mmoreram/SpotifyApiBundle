@@ -1,7 +1,7 @@
-[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/mmoreram/SpotifyApiBundle/badges/quality-score.png?s=963c9aa24957514a35b451d215e4b82316f789ac)](https://scrutinizer-ci.com/g/mmoreram/SpotifyApiBundle/)
-
 SpotifyApiBundle for Symfony2
----
+=====
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/7980c1e5-b430-4264-8d30-d6e2ef68d0d8/mini.png)](https://insight.sensiolabs.com/projects/7980c1e5-b430-4264-8d30-d6e2ef68d0d8)
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/mmoreram/SpotifyApiBundle/badges/quality-score.png?s=963c9aa24957514a35b451d215e4b82316f789ac)](https://scrutinizer-ci.com/g/mmoreram/SpotifyApiBundle/)
 
 > This bundle is only a wrapper of Spotify Api for all Symfony2 developers.  
 > You can find all API specification [here](https://developer.spotify.com/technologies/web-api/)
