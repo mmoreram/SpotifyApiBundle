@@ -31,7 +31,7 @@ Then you have to use composer to update your project dependencies
 
     php composer.phar update
 
-And register the bundle in your appkernel.php file
+And register the bundle in your AppKernel.php file
 
     return array(
         // ...
@@ -97,21 +97,21 @@ Given an artist code, you can get all related information by using the Spitify A
 
     $artist = $this
         ->container
-        ->get('spotify.api.search')
+        ->get('spotify.api.lookup')
         ->getArtist('spotify:artist:0YC192cP3KPCRWx8zr8MfZ');
 
 Given an album code, you can also get all related information it
 
     $album = $this
         ->container
-        ->get('spotify.api.search')
+        ->get('spotify.api.lookup')
         ->getAlbum('spotify:album:6JoI0NEAqeJ20X6lU3Drx0');
 
 And given a track code, you can also get all related information about it
 
     $track = $this
         ->container
-        ->get('spotify.api.search')
+        ->get('spotify.api.lookup')
         ->getTrack('spotify:track:5sbwYsgzeg7wsug1A1pTiO');
 
 
