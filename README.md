@@ -13,6 +13,7 @@ SpotifyApiBundle for Symfony2
 Table of contents
 -----
 1. [Installing SpotifyApiBundle](#installing-spotifyapibundle)
+    * [Tags](#tags)
 2. [API Search](#api-search)
 3. [API Lookup](#api-lookup)
 3. [Contribute](#contribute)
@@ -40,6 +41,11 @@ And register the bundle in your appkernel.php file
         new Mmoreram\SpotifyApiBundle\SpotifyApiBundle(),
         // ...
     );
+    
+## Tags
+
+* Use version `1.0-dev` for last updated. Alias of `dev-master`.
+* Use last stable version tag to stay in a stable release.
 
 API Search
 ---
