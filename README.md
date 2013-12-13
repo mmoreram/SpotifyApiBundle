@@ -1,9 +1,11 @@
 SpotifyApiBundle for Symfony2
 =====
-
-[![Packagist nb of downloads](https://poser.pugx.org/mmoreram/spotify-api-bundle/downloads.png)](https://packagist.org/packages/mmoreram/spotify-api-bundle)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/7980c1e5-b430-4264-8d30-d6e2ef68d0d8/mini.png)](https://insight.sensiolabs.com/projects/7980c1e5-b430-4264-8d30-d6e2ef68d0d8)
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/mmoreram/SpotifyApiBundle/badges/quality-score.png?s=963c9aa24957514a35b451d215e4b82316f789ac)](https://scrutinizer-ci.com/g/mmoreram/SpotifyApiBundle/)
+[![Latest Stable Version](https://poser.pugx.org/mmoreram/spotify-api-bundle/v/stable.png)](https://packagist.org/packages/mmoreram/gearman-bundle)
+[![Latest Unstable Version](https://poser.pugx.org/mmoreram/spotify-api-bundle/v/unstable.png)](https://packagist.org/packages/mmoreram/gearman-bundle)
+[![Dependency Status](https://www.versioneye.com/user/projects/52ab6d12632bacbeaa000010/badge.png)](https://www.versioneye.com/user/projects/522d1ea8632bac341a000d95)
+[![Total Downloads](https://poser.pugx.org/mmoreram/spotify-api-bundle/downloads.png)](https://packagist.org/packages/mmoreram/spotify-api-bundle)
 
 > This bundle is only a wrapper of Spotify Api for all Symfony2 developers.  
 > You can find all API specification [here](https://developer.spotify.com/technologies/web-api/)
