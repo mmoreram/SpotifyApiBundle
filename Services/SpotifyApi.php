@@ -2,7 +2,7 @@
 
 /**
  * Spotify API Bundle for Symfony2
- * 
+ *
  * @author Marc Morera <yuhu@mmoreram.com>
  * @since 2013
  */
@@ -13,38 +13,35 @@ use Buzz\Browser;
 use Mmoreram\SpotifyApiBundle\Mapper\SpotifyMapper;
 
 /**
- * Service base 
+ * Service base
  */
 class SpotifyApi
 {
 
     /**
      * @var Buzz\Browser
-     * 
+     *
      * Buzz service instance
      */
     private $buzz;
 
-
     /**
      * @var Mmoreram\SpotifyApiBundle\Mapper\SpotifyMapper
-     * 
+     *
      * Mapper instance
      */
     private $mapper;
 
-
     /**
      * @var string
-     * 
+     *
      * Spotify Api url base
      */
     protected $baseUrl;
 
-
     /**
      * Construct method
-     * 
+     *
      * @param Buzz\Browser  $buzz    Buzz service instance
      * @param SpotifyMapper $mapper  Mapper intance
      * @param string        $baseUrl Base url from api
@@ -56,12 +53,11 @@ class SpotifyApi
         $this->baseUrl = $baseUrl;
     }
 
-
     /**
      * Normalize query for request
-     * 
+     *
      * @param String $query Query
-     * 
+     *
      * @return string Query normalized
      */
     protected function normalizeQuery($query)
@@ -74,12 +70,11 @@ class SpotifyApi
         return rawurlencode(trim($query));
     }
 
-
     /**
      * Given a url, process it and return found results
-     * 
+     *
      * @param string $url Url to process
-     * 
+     *
      * @return mixed Results
      */
     protected function get($url)
@@ -90,19 +85,17 @@ class SpotifyApi
 
         $requestStatusCode = $this->getMessageFromCode($request->getStatusCode());
         if (200 === $requestStatusCode['code']) {
-
             return $this->mapper->map(json_decode($request->getContent(), true));
         }
 
         return $requestStatusCode;
     }
 
-
     /**
      * Given a Response code, return custom Spotify message
-     * 
+     *
      * @param Integer $code Code of the Reponse
-     * 
+     *
      * @return Array Response return information
      */
     private function getMessageFromCode($code)

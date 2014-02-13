@@ -5,7 +5,7 @@ services:
 
     spotify.api.abstract:
         abstract:  true
-        arguments: 
+        arguments:
             buzz: @buzz
             spotify.manager: @spotify.api.mapper
             spotify.api.baseurl: %spotify.api.baseurl%

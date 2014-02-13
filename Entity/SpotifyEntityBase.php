@@ -2,13 +2,12 @@
 
 /**
  * Spotify API Bundle for Symfony2
- * 
+ *
  * @author Marc Morera <yuhu@mmoreram.com>
  * @since 2013
  */
 
 namespace Mmoreram\SpotifyApiBundle\Entity;
-
 
 /**
  * Spotify base entity
@@ -18,41 +17,37 @@ class SpotifyEntityBase
 
     /**
      * @var int
-     * 
+     *
      * Entity id
      */
     protected $id;
 
-
     /**
      * @var string
-     * 
+     *
      * Href
      */
     protected $href;
 
-
     /**
      * @var string
-     * 
+     *
      * Name
      */
     protected $name;
 
-
     /**
      * @var int
-     * 
+     *
      * Popularity
      */
     protected $popularity;
 
-
     /**
      * Sets id
-     * 
+     *
      * @param integer $id Id
-     * 
+     *
      * @return SpotifyEntityBase self Object
      */
     public function setId($id)
@@ -62,10 +57,9 @@ class SpotifyEntityBase
         return $this;
     }
 
-
     /**
      * Return id
-     * 
+     *
      * @return integer Id
      */
     public function getId()
@@ -73,12 +67,11 @@ class SpotifyEntityBase
         return $this->id;
     }
 
-
     /**
      * Sets href
-     * 
+     *
      * @param string $href Href
-     * 
+     *
      * @return SpotifyEntityBase self Object
      */
     public function setHref($href)
@@ -88,10 +81,9 @@ class SpotifyEntityBase
         return $this;
     }
 
-
     /**
      * Return href
-     * 
+     *
      * @return string Href
      */
     public function getHref()
@@ -99,12 +91,11 @@ class SpotifyEntityBase
         return $this->href;
     }
 
-
     /**
      * Sets name
-     * 
+     *
      * @param string $name Name
-     * 
+     *
      * @return SpotifyEntityBase self Object
      */
     public function setName($name)
@@ -114,10 +105,9 @@ class SpotifyEntityBase
         return $this;
     }
 
-
     /**
      * Return name
-     * 
+     *
      * @return string Name
      */
     public function getName()
@@ -125,12 +115,11 @@ class SpotifyEntityBase
         return $this->name;
     }
 
-
     /**
      * Sets popularity
-     * 
+     *
      * @param integer $popularity Popularity
-     * 
+     *
      * @return SpotifyEntityBase self Object
      */
     public function setPopularity($popularity)
@@ -140,10 +129,9 @@ class SpotifyEntityBase
         return $this;
     }
 
-
     /**
      * Return popularity
-     * 
+     *
      * @return integer Popularity
      */
     public function getPopularity()

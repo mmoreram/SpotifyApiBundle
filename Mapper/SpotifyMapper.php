@@ -2,7 +2,7 @@
 
 /**
  * Spotify API Bundle for Symfony2
- * 
+ *
  * @author Marc Morera <yuhu@mmoreram.com>
  * @since 2013
  */
@@ -22,9 +22,9 @@ class SpotifyMapper
 
     /**
      * Given a parsed data, tries to map with Spotify Model
-     * 
+     *
      * @param array $data Data parsed
-     * 
+     *
      * @return mixed Entities mapped
      */
     public function map(array $data)
@@ -32,7 +32,6 @@ class SpotifyMapper
         switch ($data['info']['type']) {
 
             case 'artist':
-
                 return $this->mapArtistsData($data);
 
             case 'album';
@@ -47,12 +46,11 @@ class SpotifyMapper
         return;
     }
 
-
     /**
      * Given a parsed artist data
-     * 
+     *
      * @param array $data Data parsed
-     * 
+     *
      * @return mixed Entities mapped
      */
     public function mapArtistsData(array $data)
@@ -70,12 +68,11 @@ class SpotifyMapper
         return $result;
     }
 
-
     /**
      * Given a parsed album data
-     * 
+     *
      * @param array $data Data parsed
-     * 
+     *
      * @return mixed Entities mapped
      */
     public function mapAlbumsData(array $data)
@@ -93,12 +90,11 @@ class SpotifyMapper
         return $result;
     }
 
-
     /**
      * Given a parsed track data
-     * 
+     *
      * @param array $data Data parsed
-     * 
+     *
      * @return mixed Entities mapped
      */
     public function mapTracksData(array $data)
@@ -116,12 +112,11 @@ class SpotifyMapper
         return $result;
     }
 
-
     /**
      * Map artists given a parsed artists data
-     * 
+     *
      * @param array $artists Crude artists data
-     * 
+     *
      * @return array Entities mapped
      */
     public function mapArtists(array $artists)
@@ -136,12 +131,11 @@ class SpotifyMapper
         return $artistsLoaded;
     }
 
-
     /**
      * Map artist given a parsed artist data
-     * 
+     *
      * @param array $artist Crude artist data
-     * 
+     *
      * @return SpotifyArtist Artist loaded
      */
     public function mapArtist(array $artist)
@@ -165,12 +159,11 @@ class SpotifyMapper
         return $artistEntity;
     }
 
-
     /**
      * Map albums given a parsed albums data
-     * 
+     *
      * @param array $albums Crude albums data
-     * 
+     *
      * @return array Entities mapped
      */
     public function mapAlbums(array $albums)
@@ -185,13 +178,12 @@ class SpotifyMapper
         return $albumsLoaded;
     }
 
-
     /**
      * Map album given a parsed album data
-     * 
+     *
      * @param array   $album     Crude album data
      * @param boolean $recursive If set, also map Artists
-     * 
+     *
      * @return SpotifyAlbum Album loaded
      */
     public function mapAlbum(array $album, $recursive = true)
@@ -214,12 +206,11 @@ class SpotifyMapper
         return $albumEntity;
     }
 
-
     /**
      * Map tracks given a parsed tracks data
-     * 
+     *
      * @param array $tracks Crude tracks data
-     * 
+     *
      * @return array Entities mapped
      */
     public function mapTracks(array $tracks)
@@ -234,12 +225,11 @@ class SpotifyMapper
         return $tracksLoaded;
     }
 
-
     /**
      * Map track given a parsed track data
-     * 
+     *
      * @param array $track Crude track data
-     * 
+     *
      * @return SpotifyArtist Artist loaded
      */
     public function mapTrack(array $track)
@@ -277,13 +267,12 @@ class SpotifyMapper
         return $trackEntity;
     }
 
-
     /**
      * Given an entity and crude data, fill some common fields
-     * 
+     *
      * @param SpotifyEntityBase $entity Entity
      * @param array             $data   Crude data
-     * 
+     *
      * @return SpotifyEntityBase Object with data mapped
      */
     public function mapCommon(SpotifyEntityBase $entity, array $data)
