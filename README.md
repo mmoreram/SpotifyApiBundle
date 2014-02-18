@@ -163,3 +163,7 @@ If you'd like to contribute, please read the [Contributing Code][1] part of the 
 [1]: http://symfony.com/doc/current/contributing/code/index.html
 [2]: http://symfony.com/doc/current/contributing/code/patches.html#check-list
 [3]: http://symfony.com/doc/current/contributing/code/patches.html#make-a-pull-request
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mmoreram/spotifyapibundle/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
