@@ -30,11 +30,18 @@ class SpotifyAlbum extends SpotifyEntityBase
     protected $released;
 
     /**
-     * Territories
+     * AvailableMarkets
      *
      * @var array
      */
-    protected $territories;
+    protected $availableMarkets;
+
+    /**
+     * Images
+     *
+     * @var array
+     */
+    protected $images;
 
     /**
      * Return Artist
@@ -85,37 +92,77 @@ class SpotifyAlbum extends SpotifyEntityBase
     }
 
     /**
-     * Get territories where this album is available
+     * Get markets where this album is available
      *
-     * @return array Territories
+     * @return array Markets
      */
-    public function getTerritories()
+    public function getAvailableMarkets()
     {
-        return $this->territories;
+        return $this->availableMarkets;
     }
 
     /**
-     * Return if Albus is available to desired territory
+     * Return if Album is available to desired availableMarket
      *
-     * @param String $territory Territory
+     * @param String $market Market
      *
      * @return boolean Is available
      */
-    public function hasTerritory($territory)
+    public function hasAvailableMarket($markets)
     {
-        return is_array($this->territories) && in_array($territory, $this->territories);
+        return is_array($this->availableMarkets) && in_array($market, $this->availableMarkets);
     }
 
     /**
-     * Store locally territories
+     * Store locally availableMarkets
      *
-     * @param array $territories Territories to set
+     * @param array $markets Markets to set
      *
      * @return SpotifyAlbum self Object
      */
-    public function setTerritories($territories)
+    public function setAvailableMarkets($markets)
     {
-        $this->territories = $territories;
+        $this->availableMarkets = $markets;
+
+        return $this;
+    }
+
+    /**
+     * Get images
+     *
+     * @return array Images
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    /**
+     * Add an image
+     *
+     * @param SpotifyImage $image Image to add
+     *
+     * @return SpotifyAlbum self Object
+     */
+    public function addImage($image)
+    {
+        if (!in_array($image, $this->images)) {
+            $this->images[] = $image;
+        }
+
+        return $this;
+    }
+
+    /**
+     * Store images
+     *
+     * @param array $images Images to set
+     *
+     * @return SpotifyAlbum self Object
+     */
+    public function setImages($images)
+    {
+        $this->images = $images;
 
         return $this;
     }

@@ -32,6 +32,13 @@ class SpotifyEntityBase
     /**
      * @var string
      *
+     * URI
+     */
+    protected $uri;
+
+    /**
+     * @var string
+     *
      * Name
      */
     protected $name;
@@ -89,6 +96,30 @@ class SpotifyEntityBase
     public function getHref()
     {
         return $this->href;
+    }
+
+    /**
+     * Sets uri
+     *
+     * @param string $uri Uri
+     *
+     * @return SpotifyEntityBase self Object
+     */
+    public function setUri($uri)
+    {
+        $this->uri = $uri;
+
+        return $this;
+    }
+
+    /**
+     * Return uri
+     *
+     * @return string Uri
+     */
+    public function getUri()
+    {
+        return $this->uri;
     }
 
     /**

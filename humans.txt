@@ -1,9 +1,15 @@
-/* TEAM */            
-Creator : Marc Morera 
+/* TEAM */
+Creator: Marc Morera
 Site: https://github.com/mmoreram/spotify-api-bundle
 Contact: yuhu at mmoreram dot com
-Twitter: mmoreram                   
+Twitter: mmoreram
 Location: Barcelona, Catalunya, Catalunya.
+
+Contributor: Arnaud de Mouhy
+Site: https://github.com/dehy
+Contact: arnaud.demouhy at akerbis dot com
+Twitter: dehy
+Location: Bordeaux, France
 
 /* THANKS */
 http://spotify.com/

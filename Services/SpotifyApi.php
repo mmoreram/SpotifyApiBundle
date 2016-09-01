@@ -85,6 +85,17 @@ class SpotifyApi
 
         $requestStatusCode = $this->getMessageFromCode($request->getStatusCode());
         if (200 === $requestStatusCode['code']) {
+            if (parse_url($url, PHP_URL_PATH) == "/v1/search") {
+                parse_str(parse_url($url, PHP_URL_QUERY), $queryParameters);
+                $responseType = $queryParameters["type"]."s";
+                $foundItems = json_decode($request->getContent(), true)[$responseType]["items"];
+                $entities = [];
+                foreach ($foundItems as $item) {
+                    $entity = $this->mapper->map($item);
+                    $entities[] = $entity;
+                }
+                return $entities;
+            }
             return $this->mapper->map(json_decode($request->getContent(), true));
         }
 

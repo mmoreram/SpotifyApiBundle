@@ -12,6 +12,7 @@ namespace Mmoreram\SpotifyApiBundle\Mapper;
 use Mmoreram\SpotifyApiBundle\Entity\SpotifyArtist;
 use Mmoreram\SpotifyApiBundle\Entity\SpotifyAlbum;
 use Mmoreram\SpotifyApiBundle\Entity\SpotifyTrack;
+use Mmoreram\SpotifyApiBundle\Entity\SpotifyImage;
 use Mmoreram\SpotifyApiBundle\Entity\SpotifyEntityBase;
 
 /**
@@ -29,7 +30,7 @@ class SpotifyMapper
      */
     public function map(array $data)
     {
-        switch ($data['info']['type']) {
+        switch ($data['type']) {
 
             case 'artist':
                 return $this->mapArtistsData($data);
@@ -63,6 +64,9 @@ class SpotifyMapper
         } elseif (isset($data['artist'])) {
 
             $result = $this->mapArtist($data['artist']);
+        } else {
+
+            $result = $this->mapArtist($data);
         }
 
         return $result;
@@ -85,6 +89,9 @@ class SpotifyMapper
         } elseif (isset($data['album'])) {
 
             $result = $this->mapAlbum($data['album']);
+        } else {
+
+            $result = $this->mapAlbum($data);
         }
 
         return $result;
@@ -107,6 +114,9 @@ class SpotifyMapper
         } elseif (isset($data['track'])) {
 
             $result = $this->mapTrack($data['track']);
+        } else {
+
+            $result = $this->mapTrack($data);
         }
 
         return $result;
@@ -192,16 +202,22 @@ class SpotifyMapper
         $albumEntity = $this->mapCommon($albumEntity, $album);
 
         $albumEntity
-            ->setTerritories(
-                isset($album['territories'])
-                ? explode(' ', $album['territories'])
+            ->setAvailableMarkets(
+                isset($album['available_markets'])
+                ? $album['available_markets']
                 : null
             )
             ->setArtist(
-                $recursive && isset($album['artists']) && isset($album['artists'][0])
-                ? $this->mapArtist($album['artists'][0])
+                $recursive && isset($album['artists'])
+                ? $this->mapArtists($album['artists'])
                 : null
-            );
+            )
+            ->setImages(
+                $recursive && isset($album['images'])
+                ? $this->mapImages($album['images'])
+                : null
+            )
+        ;
 
         return $albumEntity;
     }
@@ -238,24 +254,24 @@ class SpotifyMapper
         $trackEntity = $this->mapCommon($trackEntity, $track);
 
         $trackEntity
-            ->setTerritories(
-                isset($track['territories'])
-                ? explode(' ', $track['territories'])
+            ->setAvailableMarkets(
+                isset($track['available_markets'])
+                ? $track['available_markets']
                 : null
             )
             ->setTrackNumber(
-                isset($track['track-number'])
-                ? $track['track-number']
+                isset($track['track_number'])
+                ? $track['track_number']
                 : null
             )
-            ->setLength(
-                isset($track['length'])
-                ? $track['length']
+            ->setDuration(
+                isset($track['duration_ms'])
+                ? $track['duration_ms']
                 : null
             )
-            ->setArtist(
-                isset($track['artists']) && isset($track['artists'][0])
-                ? $this->mapArtist($track['artists'][0])
+            ->setArtists(
+                isset($track['artists'])
+                ? $this->mapArtists($track['artists'])
                 : null
             )
             ->setAlbum(
@@ -265,6 +281,57 @@ class SpotifyMapper
             );
 
         return $trackEntity;
+    }
+
+    /**
+     * Map images given a parsed images data
+     *
+     * @param array $images Crude images data
+     *
+     * @return array Entities mapped
+     */
+    public function mapImages(array $images)
+    {
+        $imagesLoaded = array();
+
+        foreach ($images as $image) {
+
+            $imagesLoaded[] = $this->mapImage($image);
+        }
+
+        return $imagesLoaded;
+    }
+
+    /**
+     * Map image given a parsed image data
+     *
+     * @param array $image Crude image data
+     *
+     * @return SpotifyImage Image loaded
+     */
+    public function mapImage(array $image)
+    {
+        $imageEntity = new SpotifyImage();
+
+        $imageEntity
+            ->setURL(
+                isset($image['url'])
+                ? $image['url']
+                : null
+            )
+            ->setWidth(
+                isset($image['width'])
+                ? $image['width']
+                : null
+            )
+            ->setHeight(
+                isset($image['height'])
+                ? $image['height']
+                : null
+            )
+        ;
+
+        return $imageEntity;
     }
 
     /**
@@ -283,6 +350,11 @@ class SpotifyMapper
                 ? $data['href']
                 : null
             )
+            ->setUri(
+                isset($data['uri'])
+                ? $data['uri']
+                : null
+            )
             ->setId(
                 isset($data['id'])
                 ? $data['id']
@@ -297,7 +369,8 @@ class SpotifyMapper
                 isset($data['popularity'])
                 ? $data['popularity']
                 : null
-            );
+            )
+        ;
 
         return $entity;
     }

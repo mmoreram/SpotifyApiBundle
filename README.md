@@ -8,7 +8,7 @@ SpotifyApiBundle for Symfony2
 [![Total Downloads](https://poser.pugx.org/mmoreram/spotify-api-bundle/downloads.png)](https://packagist.org/packages/mmoreram/spotify-api-bundle)
 
 > This bundle is only a wrapper of Spotify Api for all Symfony2 developers.
-> You can find all API specification [here](https://developer.spotify.com/technologies/web-api/)
+> You can find all API specification [here](https://developer.spotify.com/web-api/)
 
 Table of contents
 -----
@@ -44,6 +44,16 @@ Then you have to use composer to update your project dependencies
 
 ```bash
 $ php composer.phar update
+```
+
+Make sure you have the Sensio's Buzz bundle registered
+
+```
+return array(
+    // ...
+    new Sensio\Bundle\BuzzBundle\SensioBuzzBundle(),
+    // ...
+);
 ```
 
 And register the bundle in your appkernel.php file
@@ -87,7 +97,7 @@ $page = 1;
 $albums = $this
     ->container
     ->get('spotify.api.search')
-    ->findAlbums("Pirate of the Caribbean, at world's end", $page);
+    ->findAlbum("Pirate of the Caribbean, at world's end", $page);
 ```
 
 You can also search also a simple artist name, getting only first Artist
@@ -107,7 +117,7 @@ $page = 1;
 $tracks = $this
     ->container
     ->get('spotify.api.search')
-    ->findTracks("I don't think now is the best time", $page);
+    ->findTrack("I don't think now is the best time", $page);
 ```
 
 You can also search also a simple artist name, getting only first Artist
@@ -122,31 +132,31 @@ $tracks = $this
 API Lookup
 ---
 
-Given an artist code, you can get all related information by using the Spitify Api Lookup service
+Given an artist id, you can get all related information by using the Spitify Api Lookup service
 
 ``` php
 $artist = $this
     ->container
     ->get('spotify.api.search')
-    ->getArtist('spotify:artist:0YC192cP3KPCRWx8zr8MfZ');
+    ->getArtist('0YC192cP3KPCRWx8zr8MfZ');
 ```
 
-Given an album code, you can also get all related information it
+Given an album id, you can also get all related information it
 
 ``` php
 $album = $this
     ->container
     ->get('spotify.api.search')
-    ->getAlbum('spotify:album:6JoI0NEAqeJ20X6lU3Drx0');
+    ->getAlbum('6JoI0NEAqeJ20X6lU3Drx0');
 ```
 
-And given a track code, you can also get all related information about it
+And given a track id, you can also get all related information about it
 
 ``` php
 $track = $this
     ->container
     ->get('spotify.api.search')
-    ->getTrack('spotify:track:5sbwYsgzeg7wsug1A1pTiO');
+    ->getTrack('5sbwYsgzeg7wsug1A1pTiO');
 ```
 
 
@@ -166,4 +176,3 @@ If you'd like to contribute, please read the [Contributing Code][1] part of the 
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mmoreram/spotifyapibundle/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
