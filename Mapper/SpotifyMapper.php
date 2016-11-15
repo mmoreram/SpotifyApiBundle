@@ -209,7 +209,7 @@ class SpotifyMapper
             )
             ->setArtist(
                 $recursive && isset($album['artists'])
-                ? $this->mapArtists($album['artists'])
+                ? current($this->mapArtists($album['artists']))
                 : null
             )
             ->setImages(
