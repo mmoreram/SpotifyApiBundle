@@ -16,11 +16,11 @@ class SpotifyTrack extends SpotifyEntityBase
 {
 
     /**
-     * Artist
+     * Artists
      *
-     * @var Mmoreram\SpotifyApiBundle\Entity\SpotifyArtist
+     * @var array
      */
-    protected $artist;
+    protected $artists;
 
     /**
      * Track Album
@@ -30,11 +30,11 @@ class SpotifyTrack extends SpotifyEntityBase
     protected $album;
 
     /**
-     * Territories
+     * AvailableMarkets
      *
      * @var array
      */
-    protected $territories;
+    protected $availableMarkets;
 
     /**
      * Track number
@@ -48,28 +48,44 @@ class SpotifyTrack extends SpotifyEntityBase
      *
      * @var integer
      */
-    protected $length;
+    protected $duration;
 
     /**
-     * Return Artist
+     * Return artists
      *
-     * @return SpotifyArtist Artist stored
+     * @return array Artists stored
      */
-    public function getArtist()
+    public function getArtists()
     {
-        return $this->artist;
+        return $this->artists;
     }
 
     /**
-     * Store locally Artist
+     * Add local Artist
      *
-     * @param SpotifyAlbum $artist Artist to set
+     * @param SpotifyArtist $artist Artist to add
      *
      * @return SpotifyAlbum self Object
      */
-    public function setArtist(SpotifyArtist $artist = null)
+    public function addArtist($artist)
     {
-        $this->artist = $artist;
+        if (!in_array($artist, $this->artists)) {
+            $this->artists[] = $artist;
+        }
+
+        return $this;
+    }
+
+    /**
+     * Store locally Artists
+     *
+     * @param array $artists Artists list to set
+     *
+     * @return SpotifyAlbum self Object
+     */
+    public function setArtists($artists)
+    {
+        $this->artists = $artists;
 
         return $this;
     }
@@ -99,37 +115,37 @@ class SpotifyTrack extends SpotifyEntityBase
     }
 
     /**
-     * Get territories where this album is available
+     * Get availableMarkets where this album is available
      *
-     * @return array Territories
+     * @return array AvailableMarkets
      */
-    public function getTerritories()
+    public function getAvailableMarkets()
     {
-        return $this->territories;
+        return $this->availableMarkets;
     }
 
     /**
-     * Return if Albus is available to desired territory
+     * Return if Albus is available to desired availableMarket
      *
-     * @param String $territory Territory
+     * @param String $availableMarket AvailableMarket
      *
      * @return boolean Is available
      */
-    public function hasTerritory($territory)
+    public function hasAvailableMarket($availableMarket)
     {
-        return is_array($this->territories) && in_array($territory, $this->territories);
+        return is_array($this->availableMarkets) && in_array($availableMarket, $this->availableMarkets);
     }
 
     /**
-     * Store locally territories
+     * Store locally availableMarkets
      *
-     * @param array $territories Territories to set
+     * @param array $availableMarkets AvailableMarkets to set
      *
      * @return SpotifyTrack self Object
      */
-    public function setTerritories($territories)
+    public function setAvailableMarkets($availableMarkets)
     {
-        $this->territories = $territories;
+        $this->availableMarkets = $availableMarkets;
 
         return $this;
     }
@@ -159,25 +175,25 @@ class SpotifyTrack extends SpotifyEntityBase
     }
 
     /**
-     * Return length
+     * Return duration
      *
-     * @return integer Length
+     * @return integer Duration
      */
-    public function getLength()
+    public function getDuration()
     {
-        return $this->length;
+        return $this->duration;
     }
 
     /**
      * Sets lentgh
      *
-     * @param integer $length Track length
+     * @param integer $duration Track duration
      *
      * @return SpotifyTrack self Object
      */
-    public function setLength($length)
+    public function setDuration($duration)
     {
-        $this->length = $length;
+        $this->duration = $duration;
 
         return $this;
     }

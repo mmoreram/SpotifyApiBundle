@@ -40,7 +40,7 @@ class SpotifyApiSearch extends SpotifyApi
     public function findArtist($searchKeys, $page = 1)
     {
         return $this->get(
-            $this->baseUrl . 'search/1/artist?q=' . $this->normalizeQuery($searchKeys) . '&page=' . ((int) $page)
+            $this->baseUrl . 'v1/search?type=artist&q=' . $this->normalizeQuery($searchKeys) . '&page=' . ((int) $page)
         );
     }
 
@@ -69,7 +69,7 @@ class SpotifyApiSearch extends SpotifyApi
     public function findAlbum($searchKeys, $page = 1)
     {
         return $this->get(
-            $this->baseUrl . 'search/1/album?q=' . $this->normalizeQuery($searchKeys) . '&page=' . ((int) $page)
+            $this->baseUrl . 'v1/search?type=album&q=' . $this->normalizeQuery($searchKeys) . '&page=' . ((int) $page)
         );
     }
 
@@ -98,7 +98,7 @@ class SpotifyApiSearch extends SpotifyApi
     public function findTrack($searchKeys, $page = 1)
     {
         return $this->get(
-            $this->baseUrl . 'search/1/track?q=' . $this->normalizeQuery($searchKeys) . '&page=' . ((int) $page)
+            $this->baseUrl . 'v1/search?type=track&q=' . $this->normalizeQuery($searchKeys) . '&page=' . ((int) $page)
         );
     }
 }
