@@ -9,11 +9,11 @@
 
 namespace Mmoreram\SpotifyApiBundle\Mapper;
 
-use Mmoreram\SpotifyApiBundle\Entity\SpotifyArtist;
 use Mmoreram\SpotifyApiBundle\Entity\SpotifyAlbum;
-use Mmoreram\SpotifyApiBundle\Entity\SpotifyTrack;
-use Mmoreram\SpotifyApiBundle\Entity\SpotifyImage;
+use Mmoreram\SpotifyApiBundle\Entity\SpotifyArtist;
 use Mmoreram\SpotifyApiBundle\Entity\SpotifyEntityBase;
+use Mmoreram\SpotifyApiBundle\Entity\SpotifyImage;
+use Mmoreram\SpotifyApiBundle\Entity\SpotifyTrack;
 
 /**
  * Mapper base

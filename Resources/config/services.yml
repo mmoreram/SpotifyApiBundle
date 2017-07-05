@@ -1,19 +1,19 @@
 services:
 
     spotify.api.mapper:
-        class: %spotify.api.mapper.class%
+        class: "%spotify.api.mapper.class%"
 
     spotify.api.abstract:
         abstract:  true
         arguments:
-            buzz: @buzz
-            spotify.manager: @spotify.api.mapper
-            spotify.api.baseurl: %spotify.api.baseurl%
+            buzz: "@buzz"
+            spotify.manager: "@spotify.api.mapper"
+            spotify.api.baseurl: "%spotify.api.baseurl%"
 
     spotify.api.search:
-        class: %spotify.api.search.class%
-        parent: spotify.api.abstract
+        class: "%spotify.api.search.class%"
+        parent: "spotify.api.abstract"
 
     spotify.api.lookup:
-        class: %spotify.api.lookup.class%
-        parent: spotify.api.abstract
+        class: "%spotify.api.lookup.class%"
+        parent: "spotify.api.abstract"
